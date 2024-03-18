@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title %></title>
+    <link rel="stylesheet" href="/css/index.css"></link>
+    <link rel="stylesheet" href="/css/views/transactions.css"></link>
+</head>
+<body>
+    <header>
+        <a href="/item/search"><div class="logo">DMarket analysis tool</div></a>
+        <div class="controls">
+            <a href="/item/search"><button type="button">Find another item</button></a>
+            <a href="/item/<%= title %>/details"><button type="button">Item details</button></a>
+            <form action="/item/<%= title %>/analysis" method="GET" class="transactions-form outlined">
+                <label for="period">
+                    <div></div>
+                    <input name="period" placeholder="Time period (14 by default)" type="number" value="<%= locals.period %>"/>
+                </label>
+                <button type="submit" class="button">Refresh transactions</button>
+            </form>
+            <!-- <a href="/item/<%= title %>/analysis"><button type="button">Refresh item transaction history</button></a> -->
+        </div>
+        <div class="user-controls">
+            <form action="/user/logout" method="POST"><button type="submit">Log out</button></form>
+        </div>
+    </header>
+    <div class="main-section">
+        <div class="item-data">
+            <div class="title"><%= title %></div>
+            <ul class="transactions-list">
+                <li class="legend outlined">
+                    <div>Buy date</div>
+                    <div>Sell date</div>
+                    <div>Buy price</div>
+                    <div>Sell price</div>
+                    <div>Potential profit</div>
+                </li>
+                <% potentialTransactions.forEach(transaction => { %>
+                    <li class="transaction">
+                        <div><%= transaction.buyDate %></div>
+                        <div><%= transaction.sellDate %></div>
+                        <div><%= transaction.buyPrice %></div>
+                        <div><%= transaction.sellPrice %></div>
+                        <div><%= transaction.potentialProfit %></div>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

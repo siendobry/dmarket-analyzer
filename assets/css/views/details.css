@@ -1,0 +1,24 @@
+.image {
+    width: 400px;
+    padding: 24px;
+}
+
+.item-attributes, .attributes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.attributes {
+    width: 100%;
+    padding: 0 2vw;
+}
+
+.attribute {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

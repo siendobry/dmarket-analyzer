@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.item.title %></title>
+    <link rel="stylesheet" href="/css/index.css"></link>
+    <link rel="stylesheet" href="/css/views/details.css"></link>
+</head>
+<body>
+    <header>
+        <a href="/item/search"><div class="logo">DMarket analysis tool</div></a>
+        <div class="controls">
+            <a href="/item/search"><button type="button">Find another item</button></a>
+            <a href="/item/<%= item.title %>/details"><button type="button">Refresh item details</button></a>
+            <form action="/item/<%= item.title %>/analysis" method="GET" class="transactions-form outlined">
+                <label for="period">
+                    <div></div>
+                    <input name="period" placeholder="Time period (in days)" type="number" value="<%= locals.period %>"/>
+                </label>
+                <button type="submit" class="button">Get transactions</button>
+            </form>
+            <!-- <a href="/item/<%= item.title %>/analysis"><button type="button">Item transaction history</button></a> -->
+        </div>
+        <div class="user-controls">
+            <form action="/user/logout" method="POST"><button type="submit">Log out</button></form>
+        </div>
+    </header>
+    <div class="main-section">
+        <div class="item-data">
+            <img class="image" src="<%= item.imgUrl %>" alt="An image of <%= item.title %>"/>
+            <div class="item-attributes">
+                <div class="title"><%= item.title %></div>
+                <div class="attributes">
+                    <div class="attribute">
+                        <div>Lowest target:</div>
+                        <div><%= item.target %></div>
+                    </div>
+                    <div class="attribute">
+                        <div>Lowest listing:</div>
+                        <div><%= item.lowestListing %></div>
+                    </div>
+                    <div class="attribute">
+                        <div>Lowest listing (withdrawable):</div>
+                        <div><%= item.lowestWithdrawableListing %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

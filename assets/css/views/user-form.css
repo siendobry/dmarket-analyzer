@@ -1,0 +1,12 @@
+.user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.button {
+    font-size: 20px;
+    padding: 8px 24px;
+}

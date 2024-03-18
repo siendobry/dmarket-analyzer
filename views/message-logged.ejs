@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.message %></title>
+    <link rel="stylesheet" href="/css/index.css"></link>
+    <link rel="stylesheet" href="/css/views/message.css"></link>
+</head>
+<body>
+    <header>
+        <a href="/item/search"><div class="logo">DMarket analysis tool</div></a>
+        <div class="controls">
+            <a href="/item/search"><button type="button">Search for item</button></a>
+        </div>
+        <div class="user-controls">
+            <form action="/user/logout" method="POST"><button type="submit">Log out</button></form>
+        </div>
+    </header>
+    <div class="main-section">
+        <div class="message"><%= locals.message %></div>
+    </div>
+</body>
+</html>
